@@ -1,0 +1,22 @@
+services:
+  drivecat:
+    image: kawaii0v0/drivecat:latest
+    container_name: drivecat
+    restart: unless-stopped
+    ports:
+      - "9100:9100"
+      # - "8443:8443"  # Google OAuth HTTPS 回调（远程部署时启用 ssl.enabled 后取消注释）
+    volumes:
+      - ./data:/app/backend/data        # 数据持久化（数据库、日志、插件）
+      # Docker socket: 在线更新功能需要。赋予容器对宿主 Docker 的完整控制权。
+      # 如不需要自更新功能，可注释此行以减少攻击面。
+      - /var/run/docker.sock:/var/run/docker.sock
+      # ── 监控目录挂载（按需修改） ──
+      # 格式：宿主机路径:容器内路径
+      - /path/to/watch:/watch       # ← 改成你要监控的目录
+      # 多个目录示例：
+      # - /mnt/media:/watch/media
+      # - /mnt/documents:/watch/documents
+    environment:
+      - APP_ENV=production
+      - TZ=Asia/Shanghai
