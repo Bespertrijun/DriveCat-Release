@@ -99,7 +99,7 @@ https://oauth.hwii.de/api/drives/google/callback
 
 - Docker 20.10+
 - 内存：建议 512MB 以上
-- 架构：linux/amd64（其他架构请自行验证）
+- 架构：linux/amd64、linux/arm64
 
 ## 反馈与授权
 

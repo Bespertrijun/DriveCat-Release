@@ -1,6 +1,6 @@
 services:
   drivecat:
-    image: kawaii0v0/drivecat:latest
+    image: kawaii0v0/drivecat:dev
     container_name: drivecat
     restart: unless-stopped
     ports:
